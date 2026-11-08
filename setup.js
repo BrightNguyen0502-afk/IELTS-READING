@@ -8,11 +8,13 @@ const envPath = path.join(root, '.env');
 const adminPassword = crypto.randomBytes(24).toString('base64url');
 const rotateAdminPassword = process.argv.includes('--rotate-admin');
 const contents = [
-  'PORT=3000',
-  'HOST=127.0.0.1',
+  'NODE_ENV=production',
+  'HOST=0.0.0.0',
   'ADMIN_EMAIL=admin@huflit.edu.vn',
-  `ADMIN_PASSWORD=${adminPassword}`,
+  `ADMIN_PASSWORD=${huflit0502edu}`,
   'SESSION_DAYS=14',
+  'FRONTEND_ORIGINS=https://annihilate0502-ux.github.io',
+  'DATABASE_PATH=/var/data/ielts.sqlite',
   ''
 ].join('\n');
 
