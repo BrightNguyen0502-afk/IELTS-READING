@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Learner Administration | HUFLIT IELTS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="admin-body">
+  <header class="admin-header">
+    <a class="admin-brand" href="admin.html" aria-label="HUFLIT IELTS Administration">HUFLIT <span>LEARNER ADMINISTRATION</span></a>
+    <button class="btn btn--outline btn--sm" id="adminRefreshBtn" type="button" hidden>Refresh Data</button>
+    <button class="btn btn--outline btn--sm" id="adminLogoutBtn" type="button" hidden>Sign Out</button>
+  </header>
+
+  <main class="admin-login-wrap" id="adminLoginView">
+    <section class="admin-login-panel">
+      <span class="eyebrow">ADMINISTRATION</span>
+      <h1 class="page-title">Administrator Sign In</h1>
+      <p class="text-secondary">Sign in to monitor learner practice results.</p>
+      <form id="adminLoginForm" novalidate>
+        <label class="auth-field" for="adminEmail">Administrator Email</label>
+        <input class="auth-input" id="adminEmail" name="email" type="email" autocomplete="username" placeholder="admin@huflit.edu.vn" required />
+        <label class="auth-field" for="adminPassword">Password</label>
+        <input class="auth-input" id="adminPassword" name="password" type="password" autocomplete="current-password" minlength="12" placeholder="Administrator password" required />
+        <p class="auth-error" id="adminLoginError" aria-live="polite" hidden></p>
+        <button class="btn btn--primary admin-login-submit" type="submit">Sign In</button>
+        <p class="auth-note">Administrator credentials are configured on the server.</p>
+      </form>
+    </section>
+  </main>
+
+  <main class="container section admin-dashboard" id="adminDashboard" hidden>
+    <div class="page-title-row">
+      <div>
+        <span class="eyebrow">OVERVIEW</span>
+        <h1 class="page-title">Learner Progress</h1>
+        <p class="text-secondary page-intro">Monitor learner activity and results.</p>
+      </div>
+    </div>
+
+    <div class="admin-summary">
+      <div class="dash-stat card"><div class="dash-stat__label">Learners</div><div class="dash-stat__num" id="adminLearnerCount">0</div></div>
+      <div class="dash-stat card"><div class="dash-stat__label">Test Attempts</div><div class="dash-stat__num" id="adminAttemptCount">0</div></div>
+      <div class="dash-stat card"><div class="dash-stat__label">Average Band</div><div class="dash-stat__num" id="adminAverageBand">—</div></div>
+    </div>
+
+    <div class="filters-bar admin-filters">
+      <div class="search-wrap">
+        <input class="search-input" id="adminSearch" type="search" placeholder="Search by learner email or test title..." aria-label="Search learner results" />
+      </div>
+    </div>
+
+    <div class="vocab-table-wrap">
+      <table class="vocab-table admin-table">
+        <thead><tr><th scope="col">Learner Email</th><th scope="col">Test</th><th scope="col">Completed</th><th scope="col">Correct</th><th scope="col">Accuracy</th><th scope="col">Band</th><th scope="col">Duration</th><th scope="col">Details</th></tr></thead>
+        <tbody id="adminAttemptsList"></tbody>
+      </table>
+    </div>
+
+    <section class="admin-result-detail" id="adminResultDetail" aria-labelledby="adminDetailTitle" hidden>
+      <div class="admin-detail-heading">
+        <div>
+          <h2 class="section-title" id="adminDetailTitle">Question-by-Question Details</h2>
+          <p class="text-secondary page-intro" id="adminDetailSummary"></p>
+        </div>
+        <button class="btn btn--outline btn--sm" id="adminDetailBackBtn" type="button">Back to Results</button>
+      </div>
+      <div class="vocab-table-wrap admin-detail-table-wrap">
+        <table class="vocab-table admin-detail-table">
+          <thead><tr><th scope="col">Question</th><th scope="col">Prompt</th><th scope="col">Learner Answer</th><th scope="col">Correct Answer</th><th scope="col">Status</th></tr></thead>
+          <tbody id="adminQuestionDetails"></tbody>
+        </table>
+      </div>
+    </section>
+    <p class="admin-storage-note">Results are stored on the server and linked to learner accounts.</p>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

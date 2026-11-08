@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IELTS Reading | Practice Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <section class="welcome-screen" id="welcomeScreen" aria-labelledby="welcomeTitle">
+    <div class="welcome-screen__content">
+      <img class="welcome-screen__seal" src="image/huflit_logo.jpg" alt="HUFLIT University of Foreign Languages and Information Technology logo" />
+      <h1 class="welcome-screen__title" id="welcomeTitle">IELTS READING PRACTICE</h1>
+      <button class="welcome-screen__ready" id="readyButton" type="button">Ready</button>
+    </div>
+  </section>
+
+  <div id="appShell" hidden>
+
+  <!-- ========================================================
+       HEADER
+  ======================================================== -->
+  <header class="header" id="mainHeader">
+    <div class="container header__inner">
+      <a href="#" class="header__logo" data-page="home">
+        <img src="image/huflit_logo.jpg" alt="" />
+        <span>IELTS <strong>Reading</strong></span>
+      </a>
+
+      <nav class="header__nav" id="mainNav" aria-label="Main navigation">
+        <a href="#" class="nav__link nav__link--active" data-page="home">Home</a>
+        <a href="#" class="nav__link" data-page="tests">Practice Tests</a>
+        <a href="#" class="nav__link" data-page="passages">Reading Passages</a>
+        <a href="#" class="nav__link" data-page="vocab">Vocabulary</a>
+        <a href="#" class="nav__link" data-page="history" id="historyNavLink" hidden>History</a>
+        <a href="admin.html" class="nav__link" id="adminNavLink" hidden>Admin</a>
+      </nav>
+
+      <div class="header__actions">
+        <button class="btn btn--outline btn--sm" id="loginBtn" type="button">Sign In</button>
+        <div class="account-menu hidden" id="accountMenu">
+          <button class="header__avatar" id="avatarBtn" type="button" aria-label="Open account menu" aria-haspopup="true" aria-expanded="false">
+            <span>NT</span>
+          </button>
+          <div class="account-menu__popover" id="accountPopover">
+            <p class="account-menu__email" id="accountMenuEmail"></p>
+            <button class="account-menu__item" id="accountInfoBtn" type="button">Account Information</button>
+            <button class="account-menu__item account-menu__item--danger" id="logoutBtn" type="button">Sign Out</button>
+          </div>
+        </div>
+        <button class="header__burger" id="burgerBtn" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================
+       PAGE: HOME
+  ======================================================== -->
+  <div class="page page--active" id="page-home">
+
+    <!-- Hero -->
+    <section class="hero">
+      <img class="hero__background" src="image/huflit_campus.jpg" alt="" aria-hidden="true" />
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <span class="badge">Academic & General Training</span>
+          <h1 class="hero__title">Improve Your<br><span class="text-primary">IELTS Reading</span> Score</h1>
+          <p class="hero__desc">Build your IELTS Reading skills with structured practice tests and passages organized by difficulty and topic.</p>
+          <div class="hero__cta">
+            <button class="btn btn--primary btn--lg" data-page="tests">Start Practicing</button>
+            <button class="btn btn--ghost btn--lg" data-page="passages">Browse Passages</button>
+          </div>
+        </div>
+        <div class="hero__visual">
+          <div class="hero__score-badge">
+            <span class="hero__score-num" id="heroLatestBand">—</span>
+            <span class="hero__score-lbl">Latest Band</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-features section">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">ACTIVE LEARNING</span>
+          <h2 class="section-title">Everything you need to practice IELTS Reading</h2>
+          <p class="section-intro">Build reading skills, track results, and maintain a consistent study routine in one place.</p>
+        </div>
+        <div class="home-feature-grid">
+          <article class="home-feature-card">
+            <span class="home-feature-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 40 40"><rect x="7" y="8" width="26" height="25" rx="4" fill="#dfeaf3"/><path d="M13 15h14M13 20h10M13 25h12" stroke="#0056a6" stroke-width="2.5" stroke-linecap="round"/><path d="M27 5v7m-3.5-3.5h7" stroke="#16a34a" stroke-width="2" stroke-linecap="round"/></svg>
+            </span>
+            <h3>Practice under exam conditions</h3>
+            <p>Work through familiar Reading question types with a timer and question navigation.</p>
+          </article>
+          <article class="home-feature-card">
+            <span class="home-feature-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="14" fill="#dcfce7"/><path d="m13 20 5 5 10-11" fill="none" stroke="#16a34a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <h3>Understand your answers</h3>
+            <p>Review your responses after submission to identify strengths and areas to improve.</p>
+          </article>
+          <article class="home-feature-card">
+            <span class="home-feature-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 40 40"><path d="M12 7h12l7 7v19H12z" fill="#fff8cc"/><path d="M24 7v8h7M17 21h9m-9 5h9" fill="none" stroke="#9a6b00" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="m8 15 3 3-3 3" fill="none" stroke="#0056a6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <h3>Expand your vocabulary</h3>
+            <p>Explore academic vocabulary by topic and look up words in the built-in glossary.</p>
+          </article>
+          <article class="home-feature-card">
+            <span class="home-feature-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 40 40"><rect x="7" y="8" width="26" height="25" rx="4" fill="#eaf3fb"/><path d="M13 27v-5m7 5V14m7 13v-9" stroke="#0056a6" stroke-width="4" stroke-linecap="round"/><path d="m12 17 6-4 6 2 6-6" fill="none" stroke="#12345a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <h3>Track your progress</h3>
+            <p>Keep your practice history, results, and band scores in one place.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-steps section">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">GET STARTED</span>
+          <h2 class="section-title">A simple practice routine</h2>
+          <p class="section-intro">Start with a passage and build confidence one step at a time.</p>
+        </div>
+        <div class="home-steps__grid">
+          <article class="home-step">
+            <span class="home-step__number">1</span>
+            <div><h3>Choose a practice set</h3><p>Select a passage or test that fits your time and goals.</p></div>
+          </article>
+          <article class="home-step">
+            <span class="home-step__number">2</span>
+            <div><h3>Focus on the test</h3><p>Read, answer questions, and manage your time under exam conditions.</p></div>
+          </article>
+          <article class="home-step">
+            <span class="home-step__number">3</span>
+            <div><h3>Review your progress</h3><p>Check results, revisit vocabulary, and use your history to plan what to practice next.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-cta">
+      <div class="container home-cta__inner">
+        <div>
+          <span class="eyebrow">READY TO BEGIN?</span>
+          <h2>Practice today. Feel more confident tomorrow.</h2>
+          <p>Choose a practice set and start improving your IELTS Reading skills.</p>
+        </div>
+        <button class="btn btn--primary btn--lg" data-page="tests">Explore Practice Tests</button>
+      </div>
+    </section>
+
+  </div><!-- /page-home -->
+
+
+  <!-- ========================================================
+       PAGE: TESTS LIST
+  ======================================================== -->
+  <div class="page" id="page-tests">
+    <div class="container section">
+      <div class="page-title-row">
+        <h1 class="page-title">IELTS Reading Practice Tests</h1>
+      </div>
+
+      <!-- Search + Filter -->
+      <div class="filters-bar">
+        <div class="search-wrap">
+          <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
+            <path d="m21 21-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <input type="search" class="search-input" placeholder="Search practice tests..." id="testSearch" aria-label="Search practice tests" />
+        </div>
+        <div class="filter-chips">
+          <button class="chip chip--active" data-filter="all">All</button>
+          <button class="chip" data-filter="academic">Academic</button>
+          <button class="chip" data-filter="general">General</button>
+          <button class="chip" data-filter="easy">Easy</button>
+          <button class="chip" data-filter="medium">Medium</button>
+          <button class="chip" data-filter="hard">Hard</button>
+        </div>
+        <div class="sort-wrap">
+            <label class="sort-label" for="sortSelect">Sort:</label>
+          <select class="select" id="sortSelect" aria-label="Sort tests">
+            <option value="newest">Newest</option>
+            <option value="difficulty">Difficulty</option>
+            <option value="popular">Most Popular</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="tests-grid" id="testsList"></div>
+
+      <section class="drive-library" aria-labelledby="driveLibraryTitle">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title" id="driveLibraryTitle">Practice Tests on Google Drive</h2>
+            <p class="text-secondary page-intro">Open practice tests and scanned answer keys from the shared Google Drive folder.</p>
+          </div>
+        </div>
+        <div class="tests-grid" id="driveTestsList"></div>
+      </section>
+    </div>
+  </div>
+
+
+  <!-- ========================================================
+       PAGE: TEST (làm bài)
+  ======================================================== -->
+  <div class="page page--fullscreen" id="page-test">
+
+    <!-- Top bar -->
+    <div class="test-topbar" id="testTopbar">
+      <div class="test-topbar__left">
+        <button class="btn btn--ghost btn--sm test-topbar__back" id="testBackBtn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 5l-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          Exit
+        </button>
+        <div class="test-topbar__title" id="testTopTitle">IELTS Reading Test 01</div>
+      </div>
+      <div class="test-topbar__center">
+        <span class="test-topbar__progress-txt" id="topbarProgress">Question 1 / 40</span>
+        <div class="topbar-progress-track">
+          <div class="topbar-progress-fill" id="topbarProgressFill"></div>
+        </div>
+      </div>
+      <div class="test-topbar__right">
+        <div class="timer-widget" id="timerWidget">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <span id="timerDisplay">60:00</span>
+        </div>
+        <button class="btn btn--outline btn--sm test-topbar__review-back" id="returnToReviewBtn" type="button" aria-label="Return to answer review" title="Return to answer review" hidden>Answers</button>
+        <button class="btn btn--outline btn--sm" id="guideBtn" type="button">Instructions</button>
+        <button class="btn btn--ghost btn--sm" id="pauseBtn">⏸ Pause</button>
+        <button class="btn btn--primary btn--sm" id="submitBtn">Submit Test</button>
+      </div>
+    </div>
+
+    <!-- Passage tabs -->
+    <div class="passage-tabs" id="passageTabs">
+      <button class="ptab ptab--active" data-ptab="0">Passage 1</button>
+      <button class="ptab" data-ptab="1">Passage 2</button>
+      <button class="ptab" data-ptab="2">Passage 3</button>
+    </div>
+
+    <!-- 2-col layout -->
+    <div class="test-body">
+      <!-- LEFT: passage -->
+      <div class="test-passage" id="testPassage">
+        <div class="passage-meta">
+          <h2 class="passage-title" id="passageTitle">Loading...</h2>
+          <span class="badge" id="passageBadge">Academic</span>
+        </div>
+        <div class="passage-tools">
+          <button class="btn btn--primary btn--sm" id="highlightSelectionBtn" type="button" disabled>Highlight Selection</button>
+          <button class="btn btn--ghost btn--sm" id="clearHighlightsBtn" type="button">Clear Highlights</button>
+          <span class="passage-tools__hint">Select text in the passage to highlight it.</span>
+        </div>
+        <div class="passage-text" id="passageText"></div>
+      </div>
+
+      <!-- RIGHT: questions -->
+      <div class="test-questions" id="testQuestions">
+        <!-- Question navigator -->
+        <div class="q-navigator" id="qNavigator"></div>
+        <!-- Question content -->
+        <div class="q-content" id="qContent"></div>
+        <!-- Prev / Next -->
+        <div class="q-nav-btns">
+          <button class="btn btn--outline btn--sm" id="prevQBtn">← Previous</button>
+          <button class="btn btn--primary btn--sm" id="nextQBtn">Next →</button>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /page-test -->
+
+
+  <!-- ========================================================
+       PAGE: RESULT
+  ======================================================== -->
+  <div class="page" id="page-result">
+    <div class="container section">
+      <div class="result-layout">
+
+        <!-- Score summary -->
+        <div class="result-summary card">
+          <h2 class="result-summary__title">Test Results</h2>
+          <div class="band-ring-wrap">
+            <svg class="band-ring" viewBox="0 0 160 160" aria-hidden="true">
+              <circle cx="80" cy="80" r="66" fill="none" stroke="var(--border)" stroke-width="14"/>
+              <circle cx="80" cy="80" r="66" fill="none" stroke="var(--primary)" stroke-width="14"
+                stroke-linecap="round" stroke-dasharray="414.7" stroke-dashoffset="414.7"
+                id="bandRingArc" transform="rotate(-90 80 80)"/>
+            </svg>
+            <div class="band-ring__inner">
+              <span class="band-ring__score" id="resultBand">0.0</span>
+              <span class="band-ring__label">Band Score</span>
+            </div>
+          </div>
+
+          <div class="result-stats">
+            <div class="result-stat result-stat--correct">
+              <span class="result-stat__num" id="resCorrect">0</span>
+              <span class="result-stat__lbl">Correct</span>
+            </div>
+            <div class="result-stat result-stat--wrong">
+              <span class="result-stat__num" id="resWrong">0</span>
+              <span class="result-stat__lbl">Incorrect</span>
+            </div>
+            <div class="result-stat result-stat--blank">
+              <span class="result-stat__num" id="resBlank">0</span>
+              <span class="result-stat__lbl">Unanswered</span>
+            </div>
+            <div class="result-stat result-stat--acc">
+              <span class="result-stat__num" id="resAcc">0%</span>
+              <span class="result-stat__lbl">Accuracy</span>
+            </div>
+          </div>
+
+          <div class="result-time">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            Time: <strong id="resTime">—</strong>
+          </div>
+
+          <!-- Mini chart -->
+          <div class="result-chart-wrap">
+            <h3 class="result-chart-title">Results by passage</h3>
+            <div class="result-bars" id="resultBars"></div>
+          </div>
+
+          <div class="result-actions">
+            <button class="btn btn--primary" id="reviewBtn">Review Answers</button>
+            <button class="btn btn--outline" id="retryBtn">Try Again</button>
+            <button class="btn btn--ghost" data-page="tests">Back to Tests</button>
+          </div>
+        </div>
+
+        <!-- Answer review -->
+        <div class="result-review card" id="resultReview" hidden>
+          <h2 class="result-review__title">Question-by-Question Review</h2>
+          <div id="reviewList"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========================================================
+       PAGE: DASHBOARD
+  ======================================================== -->
+  <div class="page" id="page-dashboard">
+    <div class="container section">
+      <div class="dash-header">
+        <div class="dash-avatar" id="dashAvatar">HV</div>
+        <div>
+          <h1 class="dash-name" id="dashName">Learner</h1>
+          <p class="dash-sub" id="dashSub">Progress from your submitted tests.</p>
+        </div>
+      </div>
+
+      <div class="dash-stats">
+        <div class="dash-stat card">
+          <div class="dash-stat__label">Tests Completed</div>
+          <div class="dash-stat__num text-primary" id="dashTestsTaken">0</div>
+        </div>
+        <div class="dash-stat card">
+          <div class="dash-stat__label">Correct Answers</div>
+          <div class="dash-stat__num dash-stat__num--success" id="dashCorrectAnswers">0</div>
+        </div>
+        <div class="dash-stat card">
+          <div class="dash-stat__label">Accuracy</div>
+          <div class="dash-stat__num dash-stat__num--warning" id="dashAccuracy">0%</div>
+        </div>
+        <div class="dash-stat card">
+          <div class="dash-stat__label">Latest Band</div>
+          <div class="dash-stat__num text-primary" id="dashLatestBand">—</div>
+        </div>
+        <div class="dash-stat card">
+          <div class="dash-stat__label">Highest Band</div>
+          <div class="dash-stat__num dash-stat__num--success" id="dashHighestBand">—</div>
+        </div>
+        <div class="dash-stat card">
+          <div class="dash-stat__label">Study Streak</div>
+          <div class="dash-stat__num dash-stat__num--warning" id="dashStreak">0 days</div>
+        </div>
+      </div>
+
+      <!-- Band progress chart (CSS-only bar chart) -->
+      <div class="card dash-chart">
+        <h2 class="dash-chart__title">Band Score Over Time</h2>
+        <div class="band-chart" id="bandChart"></div>
+        <div class="band-chart-labels" id="bandChartLabels"></div>
+      </div>
+
+      <!-- Recent history -->
+      <div class="card">
+        <h2 class="dash-section-title">Recent History</h2>
+        <div class="history-list" id="historyList"></div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ========================================================
+       PAGE: VOCAB (placeholder)
+  ======================================================== -->
+  <div class="page" id="page-vocab">
+    <div class="container section">
+      <div class="page-title-row">
+        <div>
+          <h1 class="page-title">IELTS Reading Vocabulary</h1>
+          <p class="text-secondary page-intro">Academic vocabulary organized by topic.</p>
+        </div>
+        <div class="search-wrap vocab-search-wrap">
+          <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/><path d="m21 21-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <input type="search" class="search-input" id="vocabSearch" placeholder="Search vocabulary..." aria-label="Search vocabulary" />
+        </div>
+      </div>
+      <div class="vocab-table-wrap">
+        <table class="vocab-table">
+          <thead><tr><th scope="col">Word</th><th scope="col">Part of Speech</th><th scope="col">Meaning</th><th scope="col">Topic</th></tr></thead>
+          <tbody id="vocabList"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE: PASSAGES (placeholder) -->
+  <div class="page" id="page-passages">
+    <div class="container section">
+      <div class="page-title-row">
+        <div>
+          <h1 class="page-title">Reading Passage Library</h1>
+          <p class="text-secondary page-intro">Passages from the Academic Reading practice collection.</p>
+        </div>
+        <span class="badge">Academic</span>
+      </div>
+      <div class="passages-grid" id="passagesList"></div>
+    </div>
+  </div>
+
+  <!-- PAGE: HISTORY -->
+  <div class="page" id="page-history">
+    <div class="container section">
+      <h1 class="page-title">Practice History</h1>
+      <div class="card history-card">
+        <div class="history-list" id="historyListFull"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       OVERLAYS
+  ======================================================== -->
+
+  <!-- Demo login -->
+  <div class="overlay" id="loginOverlay" aria-modal="true" role="dialog" aria-labelledby="loginTitle" hidden>
+    <form class="modal auth-modal" id="loginForm" novalidate>
+      <button class="auth-modal__close" id="closeLoginBtn" type="button" aria-label="Close">&times;</button>
+      <div class="modal__icon" aria-hidden="true">IR</div>
+      <h2 class="modal__title" id="loginTitle">Sign In to Practice</h2>
+      <p class="modal__desc" id="authDescription">Sign in to save your progress and continue practicing.</p>
+      <label class="auth-field" for="loginEmail">Email</label>
+      <input class="auth-input" id="loginEmail" name="email" type="email" autocomplete="email" placeholder="you@example.com" required />
+      <label class="auth-field" for="loginPassword">Password</label>
+      <input class="auth-input" id="loginPassword" name="password" type="password" autocomplete="current-password" minlength="8" placeholder="At least 8 characters" required />
+      <div id="registerPasswordConfirmWrap" hidden>
+        <label class="auth-field" for="registerPasswordConfirm">Confirm Password</label>
+        <input class="auth-input" id="registerPasswordConfirm" name="passwordConfirm" type="password" autocomplete="new-password" minlength="8" />
+      </div>
+      <p class="auth-error" id="loginError" aria-live="polite" hidden></p>
+      <button class="btn btn--primary auth-submit" id="authSubmitBtn" type="submit">Sign In and Continue</button>
+      <p class="auth-note"><span id="authModePrompt">New here?</span> <button class="link auth-mode-toggle" id="authModeToggle" type="button">Create an account</button></p>
+    </form>
+  </div>
+
+  <div class="overlay" id="accountInfoOverlay" aria-modal="true" role="dialog" aria-labelledby="accountInfoTitle" hidden>
+    <section class="modal modal--sm account-info-modal">
+      <button class="auth-modal__close" id="closeAccountInfoBtn" type="button" aria-label="Close">&times;</button>
+      <div class="modal__icon" aria-hidden="true">IR</div>
+      <h2 class="modal__title" id="accountInfoTitle">Account Information</h2>
+      <p class="modal__desc">Your profile and practice progress</p>
+      <div class="account-info__profile">
+        <span class="account-info__label">Signed-in Email</span>
+        <p class="account-info__email" id="accountInfoEmail"></p>
+      </div>
+      <h3 class="account-info__heading">Practice Overview</h3>
+      <div class="account-info__stats">
+        <div class="account-info__stat"><span>Tests Completed</span><strong id="accountTestsTaken">0</strong></div>
+        <div class="account-info__stat"><span>Average Band</span><strong id="accountAverageBand">—</strong></div>
+        <div class="account-info__stat"><span>Highest Band</span><strong id="accountHighestBand">—</strong></div>
+        <div class="account-info__stat"><span>Accuracy</span><strong id="accountAccuracy">0%</strong></div>
+      </div>
+      <div class="account-info__history">
+        <h3 class="account-info__heading">Recent Practice History</h3>
+        <div class="account-info__history-list" id="accountHistoryList"></div>
+      </div>
+      <button class="btn btn--primary account-info__done" id="doneAccountInfoBtn" type="button">Done</button>
+    </section>
+  </div>
+
+  <!-- Pause -->
+  <div class="overlay" id="pauseOverlay" aria-modal="true" role="dialog" aria-labelledby="pauseTitle" hidden>
+    <div class="modal modal--sm">
+      <div class="modal__icon" aria-hidden="true">⏸</div>
+      <h2 class="modal__title" id="pauseTitle">Test Paused</h2>
+      <p class="modal__desc">The timer is paused. Resume when you are ready.</p>
+      <button class="btn btn--primary btn--lg" id="resumeBtn">▶ Resume</button>
+    </div>
+  </div>
+
+  <!-- Confirm submit -->
+  <div class="overlay" id="confirmOverlay" aria-modal="true" role="dialog" aria-labelledby="confirmTitle" hidden>
+    <div class="modal modal--sm">
+      <div class="modal__icon" aria-hidden="true">📤</div>
+      <h2 class="modal__title" id="confirmTitle">Submit Test?</h2>
+      <p class="modal__desc" id="confirmMsg">Some questions are unanswered. Are you sure you want to submit?</p>
+      <div class="modal__actions">
+        <button class="btn btn--primary" id="confirmYesBtn">Submit Test</button>
+        <button class="btn btn--ghost" id="confirmNoBtn">Keep Working</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay" id="guideOverlay" aria-modal="true" role="dialog" aria-labelledby="guideTitle" hidden>
+    <section class="modal guide-modal">
+      <button class="auth-modal__close" id="closeGuideBtn" type="button" aria-label="Close">&times;</button>
+      <div class="modal__icon" aria-hidden="true">?</div>
+      <h2 class="modal__title" id="guideTitle">Test Instructions</h2>
+      <ol class="guide-list">
+        <li>Read the instruction at the start of each question group and follow any word limits.</li>
+        <li>Select text in the passage and choose <strong>Highlight Selection</strong> to mark it.</li>
+        <li>Use the numbered buttons to move between questions. The timer continues while you navigate.</li>
+        <li>Select <strong>Submit Test</strong> to see your score and review each answer.</li>
+      </ol>
+      <button class="btn btn--primary" id="doneGuideBtn" type="button">Got It</button>
+    </section>
+  </div>
+
+  </div>
+
+  <script src="config.js"></script>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

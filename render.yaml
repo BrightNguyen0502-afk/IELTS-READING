@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: huflit-ielts-reading
+    runtime: node
+    plan: starter
+    region: singapore
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /api/health
+    disk:
+      name: ielts-sqlite-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: NODE_VERSION
+        value: 24.18.0
+      - key: NODE_ENV
+        value: production
+      - key: HOST
+        value: 0.0.0.0
+      - key: DATABASE_PATH
+        value: /var/data/ielts.sqlite
+      - key: ADMIN_EMAIL
+        value: admin@huflit.edu.vn
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: FRONTEND_ORIGINS
+        value: https://your-github-pages-domain.github.io
+      - key: SESSION_DAYS
+        value: 14
